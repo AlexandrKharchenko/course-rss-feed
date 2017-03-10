@@ -67,7 +67,7 @@
             try{
                 $elephant = new Elephant(new Version1X("http://localhost:3009"));
                 $elephant->initialize();
-                $elephant->emit('addedArticle', ['count' => $addedToDb + 1]);
+                $elephant->emit('addedArticle', ['count' => $addedToDb]);
                 $elephant ->close();
             } catch (Exception $e){
                 $log->error($e->getmessage(), ['line' => __LINE__ , 'file' => __FILE__ , 'time' => date('d-m-Y H:i:s'),] , []);

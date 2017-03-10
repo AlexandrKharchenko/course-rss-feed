@@ -6,7 +6,7 @@
     if(isset($_POST['getNew']) ){
 
         $pdo = DB::getPdo();
-        $stm = $pdo->prepare("SELECT * FROM `rss` LIMIT 0 , :limit");
+        $stm = $pdo->prepare("SELECT * FROM `rss` ORDER BY `id` DESC LIMIT 0 , :limit");
         $stm->bindValue('limit', intval($_POST['getNew']) , PDO::PARAM_INT);
         $stm->execute();
         $lenta = $stm->fetchAll();

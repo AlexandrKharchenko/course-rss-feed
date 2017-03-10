@@ -136,8 +136,11 @@
                         $('.new-items').hide();
                         $('#amount-items').text(newItems);
                         $('.grid').prepend(data);
-                        $grid.masonry('reloadItems');
-                        $grid.masonry('layout');
+                        $grid.imagesLoaded().progress( function() {
+                            $grid.masonry('reloadItems');
+                            $grid.masonry('layout');
+                        })
+
                     }
                 },
                 complete: function (data) {
