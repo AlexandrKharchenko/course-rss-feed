@@ -1,0 +1,14 @@
+{
+    "name": "AlexandrKharchenko/course-rss-feed",
+    "minimum-stability": "dev",
+    "require": {
+        "simplepie/simplepie": "^1.4",
+        "monolog/monolog": "^1.22",
+        "wisembly/elephant.io": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/"
+        }
+    }
+}

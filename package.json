@@ -1,0 +1,17 @@
+{
+  "name": "rss-feed",
+  "version": "1.0.0",
+  "description": "Homework Simple RSS Feed",
+  "main": "server.js",
+  "dependencies": {
+    "daemon": "^1.1.0",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
