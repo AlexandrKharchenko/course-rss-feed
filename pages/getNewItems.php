@@ -13,7 +13,7 @@
 
 
         if($stm->rowCount() > 0)
-            include 'tpls/items.php';
+            include 'tpls/items.php.twig';
         else
             return 'notFound';
 
