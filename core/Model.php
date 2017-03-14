@@ -1,11 +1,15 @@
 <?php
 
+    namespace Core;
     use Doctrine\DBAL\Configuration;
     use Doctrine\DBAL\DriverManager;
+
+
 
     class Model {
 
         public $db;
+        protected $queryBuilder;
 
         public function __construct()
         {
@@ -19,6 +23,7 @@
                 'driver' => 'pdo_mysql',
             );
             $this->db = DriverManager::getConnection($connectionParams, $config);
+            $this->queryBuilder = $this->db->createQueryBuilder();
         }
 
 

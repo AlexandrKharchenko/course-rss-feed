@@ -43,6 +43,8 @@
         print_r($response);
         die;
 
+    } else {
+        die('Скоро будет 404');
     }
 
 
