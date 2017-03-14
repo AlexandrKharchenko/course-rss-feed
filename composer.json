@@ -8,7 +8,8 @@
         "symfony/http-foundation": "^3.3@dev",
         "symfony/routing": "^3.3@dev",
         "twig/twig": "^2.0",
-        "symfony/dependency-injection": "^3.3@dev"
+        "symfony/dependency-injection": "^3.3@dev",
+        "doctrine/dbal": "^2.6@dev"
     },
     "autoload": {
         "psr-4": {

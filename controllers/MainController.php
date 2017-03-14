@@ -3,7 +3,6 @@
     namespace Controllers;
 
     use Core\Controller;
-
     use Core\DB;
     use ElephantIO\Engine\SocketIO\Version1X;
     use ElephantIO\Client as Elephant;
@@ -50,8 +49,9 @@
         /**
          * Парсит новые записи
          */
-        public function parseItem()
+        public function parseItem(Request $request)
         {
+            // TODO: Сделать досутп по Паролю
             $log = new Logger('RSS');
             $log->pushHandler(new SlackHandler(getenv('SLACK-KEY'), '#monolog', 'alexsot1545', false, null , Logger::DEBUG));
 

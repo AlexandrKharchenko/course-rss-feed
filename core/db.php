@@ -11,6 +11,7 @@
 
         private static $user;
         private static $psw;
+        private static $dbName;
 
         public function __construct()
         {
@@ -23,14 +24,16 @@
         public static function instance()
         {
             if (self::$instance === NULL) {
-                self::$user = getenv('DBNAME');
+                self::$user = getenv('DBUSER');
                 self::$psw = getenv('DBPSW');
+                self::$dbName = getenv('DBNAME');
                 $params = [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_EMULATE_PREPARES   => TRUE,
                 ];
-                $dsn = 'mysql:dbname=rss;host=localhost;charset=UTF8';
+                $dbName = self::$dbName;
+                $dsn = "mysql:dbname={$dbName};host=localhost;charset=UTF8";
                 self::$instance = new PDO($dsn, self::$user, self::$psw, $params);
             }
 
