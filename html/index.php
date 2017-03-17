@@ -1,8 +1,8 @@
 <?php
 
 
-    require 'vendor/autoload.php';
-    require 'env.var.php';
+    require '../vendor/autoload.php';
+    require '../env.var.php';
 
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\Routing\Matcher\UrlMatcher;

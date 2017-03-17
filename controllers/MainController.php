@@ -6,6 +6,7 @@
     use Core\DB;
     use ElephantIO\Engine\SocketIO\Version1X;
     use ElephantIO\Client as Elephant;
+    use Models\Rss;
     use Monolog\Handler\SlackHandler;
     use Monolog\Logger;
     use PDO;
@@ -33,17 +34,12 @@
         public function index(Request $request)
         {
 
-            $offset = 0;
-            $pdo = DB::getPdo();
-            $stm = $pdo->prepare("SELECT * FROM `rss` ORDER BY `id` DESC LIMIT ? , ?");
-            $stm->bindValue(1, $offset, PDO::PARAM_INT);
-            $stm->bindValue(2, 50, PDO::PARAM_INT);
-            $stm->execute();
+            $rssModel = new Rss();
+            $lentaContent = $rssModel->getItemsForMainPage();
 
-            $lentaItems = $this->view->render('tpl-parts/items.php.twig', ['lenta' => $stm->fetchAll()]);
-            $content = $this->view->render('pages/home.php.twig', ['lenta' => $lentaItems]);
+            //$lentaItems = $this->view->render('tpl-parts/items.php.twig', ['lenta' => $lentaContent]);
+            return $this->view->render('pages/home.php.twig', ['lenta' => $lentaContent]);
 
-            return $this->view->render('template/app.php.twig', ['content' => $content]);
         }
 
         /**

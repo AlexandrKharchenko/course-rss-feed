@@ -21,6 +21,7 @@
                 'password' => getenv('DBPSW'),
                 'host' => 'localhost',
                 'driver' => 'pdo_mysql',
+                'charset'   => 'UTF8'
             );
             $this->db = DriverManager::getConnection($connectionParams, $config);
             $this->queryBuilder = $this->db->createQueryBuilder();

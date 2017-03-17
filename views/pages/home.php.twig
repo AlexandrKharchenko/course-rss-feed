@@ -1,11 +1,14 @@
+{% extends "template/app.php.twig" %}
+
+{% block content %}
 <div class="container-fluid">
 
     <div class="row">
         <div class="grid">
-            {{ lenta | raw }}
+            {% include 'tpl-parts/items.php.twig' %}
+
         </div>
     </div>
-
-
-
 </div>
+{% endblock %}
+
